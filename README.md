@@ -47,7 +47,13 @@ It simply converts code from compile stage (from `syn` crate) to simplier struct
  }
  ```
  
- P.S. Personally I doubt this crate will help someone because it is impossible to do a lot of interesting and useful stuff from procedural macro at this moment unfortunately (rustc v1.15).
+4. See the results:
+
+      Running `target/debug/introspection-test`
+      Introspection: IntrospectionInfo { ident: "FrenchToast", visibility: Inherited, entity_type: Struct, fields: ["private_field", "public_field"] }
+
+ 
+P.S. Personally I doubt this crate will help someone because it is impossible to do a lot of interesting and useful stuff from procedural macro at this moment unfortunately (rustc v1.15).
  
 ## License
 
