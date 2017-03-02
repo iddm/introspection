@@ -2,19 +2,19 @@
 A rust introspection procedural macro.
 
 
-[![](https://meritbadge.herokuapp.com/fxsm)](https://crates.io/crates/fxsm) [![](https://travis-ci.org/vityafx/fxsm.svg?branch=master)](https://travis-ci.org/vityafx/urlshortener-rs)
+[![](https://meritbadge.herokuapp.com/introspection)](https://crates.io/crates/fxsm) [![](https://travis-ci.org/vityafx/introspection.svg?branch=master)](https://travis-ci.org/vityafx/introspection)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 
 ## What does it do?
 
 It simply converts code from compile stage (from `syn` crate) to simplier structs. Works for `struct`s and `enum`s.
- You may obtain this information through a [`StateMachine`](https://github.com/vityafx/introspection/blob/master/introspection/src/lib.rs) trait.
+ You may obtain this information through a [`Introspection`](https://github.com/vityafx/introspection/blob/master/introspection/src/lib.rs) trait.
   
 
 ## Usage
 
-1. Add `fxsm` as dependency in your `Cargo.toml`:
+1. Add `introspection` as dependency in your `Cargo.toml`:
 
  ```toml
  [dependencies]
