@@ -1,0 +1,22 @@
+[package]
+name = "introspection"
+version = "0.1.0"
+authors = ["Victor Polevoy <fx@thefx.co>"]
+
+license = "MIT"
+description = "A rust introspection procedural macro."
+keywords = ["introspection"]
+
+repository = "https://github.com/vityafx/introspection"
+
+[dependencies]
+syn = "0.11"
+quote = "0.3"
+serde = { version = "0.9", optional = true }
+serde_derive = { version = "0.9", optional = true }
+serde_json = { version = "0.9", optional = true }
+
+[features]
+# no features by default
+default = []
+serde_support = ["serde", "serde_derive", "serde_json"]

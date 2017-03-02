@@ -1,0 +1,8 @@
+[package]
+name = "introspection-test"
+version = "0.1.0"
+authors = ["Victor Polevoy <fx@thefx.co>"]
+
+[dependencies]
+introspection-derive = { path = "introspection-derive" }
+introspection = { path = "introspection" }

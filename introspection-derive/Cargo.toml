@@ -1,0 +1,18 @@
+[package]
+name = "introspection-derive"
+version = "0.1.0"
+authors = ["Victor Polevoy <fx@thefx.co>"]
+
+license = "MIT"
+description = "A rust introspection procedural macro."
+keywords = ["introspection"]
+
+repository = "https://github.com/vityafx/introspection"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "0.11"
+quote = "0.3"
+introspection = "0.1"
