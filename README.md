@@ -2,7 +2,7 @@
 A rust introspection procedural macro.
 
 
-[![](https://meritbadge.herokuapp.com/introspection)](https://crates.io/crates/fxsm) [![](https://travis-ci.org/vityafx/introspection.svg?branch=master)](https://travis-ci.org/vityafx/introspection)
+[![](https://meritbadge.herokuapp.com/introspection)](https://crates.io/crates/introspection) [![](https://travis-ci.org/vityafx/introspection.svg?branch=master)](https://travis-ci.org/vityafx/introspection)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 
