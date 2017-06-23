@@ -48,7 +48,8 @@ It simply converts code from compile stage (from `syn` crate) to simplier struct
  ```
  
 4. See the results:
-````
+
+```
       Running `target/debug/introspection-test`
 Introspection: IntrospectionInfo { ident: "FrenchToast", visibility: Inherited, entity_type: Struct, fields: ["private_field", "public_field"] }
 ```
