@@ -6,7 +6,7 @@ extern crate serde_json;
 extern crate syn;
 extern crate quote;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum Visibility {
     Public,
@@ -44,7 +44,7 @@ impl quote::ToTokens for Visibility {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum Type {
     Enum,
@@ -60,7 +60,7 @@ impl quote::ToTokens for Type {
 }
 
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct StaticIntrospectionInfo {
     pub ident: String,
@@ -69,9 +69,9 @@ pub struct StaticIntrospectionInfo {
     pub fields: Vec<String>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
-pub struct DynamicIntrospectionInfo<'a, T> {
+pub struct DynamicIntrospectionInfo<'a, T: 'a> {
     pub ident: String,
     pub visibility: Visibility,
     pub entity_type: Type,
@@ -79,8 +79,42 @@ pub struct DynamicIntrospectionInfo<'a, T> {
     pub value: Option<&'a T>,
 }
 
-pub trait Introspection {
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
+#[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+pub struct DynamicIntrospectionInfoMut<'a, T: 'a> {
+    pub ident: String,
+    pub visibility: Visibility,
+    pub entity_type: Type,
+    pub fields: Vec<DynamicIntrospectionInfo<'a, T>>,
+    pub value: Option<&'a mut T>,
+}
+
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
+#[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+pub struct IntoDynamicIntrospectionInfo<T: Sized> {
+    pub ident: String,
+    pub visibility: Visibility,
+    pub entity_type: Type,
+    pub fields: Vec<IntoDynamicIntrospectionInfo<T>>,
+    pub value: Option<T>,
+}
+
+pub trait StaticIntrospection {
+    /// Provides static introspection information about the type.
     fn static_introspection() -> StaticIntrospectionInfo;
-    fn dynamic_introspection(&self) -> &DynamicIntrospectionInfo<Self>;
-    fn dynamic_introspection_mut(&mut self) -> &mut DynamicIntrospectionInfo<Self>;
+}
+
+pub trait DynamicIntrospection {
+    /// Provides read-only runtime introspection information about the object.
+    fn dynamic_introspection<'a>(&'a self) -> DynamicIntrospectionInfo<'a, Self>
+        where Self: Sized;
+    /// Provides mutable runtime introspection information about the object.
+    fn dynamic_introspection_mut<'a>(&'a mut self) -> DynamicIntrospectionInfoMut<'a, Self>
+        where Self: Sized;
+}
+
+pub trait IntoIntrospection {
+    /// Consumes the object and returns it inside the introspection.
+    fn into_introspection(mut self) -> IntoDynamicIntrospectionInfo<Self>
+        where Self: Sized;
 }
