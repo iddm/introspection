@@ -59,15 +59,28 @@ impl quote::ToTokens for Type {
     }
 }
 
+
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
-pub struct IntrospectionInfo {
+pub struct StaticIntrospectionInfo {
     pub ident: String,
     pub visibility: Visibility,
     pub entity_type: Type,
     pub fields: Vec<String>,
 }
 
+#[derive(Debug, Clone)]
+#[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+pub struct DynamicIntrospectionInfo<'a, T> {
+    pub ident: String,
+    pub visibility: Visibility,
+    pub entity_type: Type,
+    pub fields: Vec<DynamicIntrospectionInfo<'a, T>>,
+    pub value: Option<&'a T>,
+}
+
 pub trait Introspection {
-    fn introspection() -> IntrospectionInfo;
+    fn static_introspection() -> StaticIntrospectionInfo;
+    fn dynamic_introspection(&self) -> &DynamicIntrospectionInfo<Self>;
+    fn dynamic_introspection_mut(&mut self) -> &mut DynamicIntrospectionInfo<Self>;
 }

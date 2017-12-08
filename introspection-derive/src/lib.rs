@@ -69,6 +69,10 @@ fn impl_introspection(ast: &syn::DeriveInput) -> quote::Tokens {
                     fields: #fields,
                 }
             }
+
+            fn fields() -> introspection::FieldsInfo {
+                introspection::FieldsI
+            }
         }
     }
 }

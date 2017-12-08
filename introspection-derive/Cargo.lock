@@ -1,14 +1,6 @@
 [[package]]
 name = "introspection"
 version = "0.1.0"
-dependencies = [
- "quote 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
- "syn 0.11.11 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "introspection"
-version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "quote 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -22,14 +14,6 @@ dependencies = [
  "introspection 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "quote 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "syn 0.11.11 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "introspection-test"
-version = "0.1.0"
-dependencies = [
- "introspection 0.1.0",
- "introspection-derive 0.1.1",
 ]
 
 [[package]]
