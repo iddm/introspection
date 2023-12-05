@@ -2,14 +2,14 @@
 A rust introspection procedural macro.
 
 
-[![](https://meritbadge.herokuapp.com/introspection)](https://crates.io/crates/introspection) [![](https://travis-ci.org/vityafx/introspection.svg?branch=master)](https://travis-ci.org/vityafx/introspection)
+[![](https://meritbadge.herokuapp.com/introspection)](https://crates.io/crates/introspection) [![](https://travis-ci.org/iddm/introspection.svg?branch=master)](https://travis-ci.org/iddm/introspection)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 
 ## What does it do?
 
 It simply converts code from compile stage (from `syn` crate) to simplier structs. Works for `struct`s and `enum`s.
- You may obtain this information through a [`Introspection`](https://github.com/vityafx/introspection/blob/master/introspection/src/lib.rs) trait.
+ You may obtain this information through a [`Introspection`](https://github.com/iddm/introspection/blob/master/introspection/src/lib.rs) trait.
   
 
 ## Usage
@@ -58,4 +58,4 @@ P.S. Personally I doubt this crate will help someone because it is impossible to
  
 ## License
 
-This project is [licensed under the MIT license](https://github.com/vityafx/introspection/blob/master/LICENSE).
+This project is [licensed under the MIT license](https://github.com/iddm/introspection/blob/master/LICENSE).

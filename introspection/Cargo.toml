@@ -7,7 +7,7 @@ license = "MIT"
 description = "A rust introspection procedural macro."
 keywords = ["introspection"]
 
-repository = "https://github.com/vityafx/introspection"
+repository = "https://github.com/iddm/introspection"
 
 [dependencies]
 syn = "0.11"
